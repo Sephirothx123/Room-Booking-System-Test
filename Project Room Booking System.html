@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Room Booking</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			background-color: white;
+			font-family: sans-serif;
+		}
+
+		h1 {
+			border: 2px solid gray;
+			padding: 10px;
+			background-color: lightgrey;
+			border-top-left-radius: 50px 20px;
+		}
+		
+		/* Style the booking options */
+		.booking-option {
+			display: inline-block;
+			padding:20px ;
+			border: 2px solid black;
+			margin: 20px;
+			cursor: pointer;
+			margin: auto;
+			background-color: lightgrey;
+		}
+		.booking-option:hover {
+			background-color: #5A5A5A;
+		}
+		
+		/* Style the calendar */
+		.calendar {
+			display: none;
+		}
+		
+		
+	</style>
+</head>
+<body>
+
+	<h1>Amazing Anonymous Room Booking System</h1>
+	
+	<h2>   Welcome Student,</h2>     
+	<input type="submit" value="Modify Rooms" onclick="modify()">
+	
+
+	<h3> Rooms Available:</h3>
+	
+	<!-- First booking option -->
+	<div class="booking-option" onclick="showCalendar(1)">
+		<h3>Room 1</h3>
+		
+		<p>Click here to book Room 1</p>
+		<img src="https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&quality=85&auto=format&fit=max&s=a52bbe202f57ac0f5ff7f47166906403" alt="Option 1 Image" width="650" 
+			height="250">
+		
+	</div>
+	
+	<!-- Second booking option -->
+	<div class="booking-option" onclick="showCalendar(2)">
+		<h3>Room 2</h3>
+		<p>Click here to book Room 2</p>
+		<img src="https://www.google.com/url?sa=i&url=http%3A%2F%2Ft1.gstatic.com%2Flicensed-image%3Fq%3Dtbn%3AANd9GcRPMKnq00NF_T7RusUNeLrSazRZM0S5O8_AOcw2iBTmYTxd3Q7uXf0sW41odpAKqSblKDMUMHGb8nZRo9g&psig=AOvVaw0iOE7GkWU0ZW__zDhen0QE&ust=1682672964816000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLC28vHbyf4CFQAAAAAdAAAAABAE" alt="Option 2 Image"  width="650" 
+			height="250">
+	</div>
+	
+	<!-- Calendar for first option -->
+	<div class="calendar" id="calendar1">
+		<label for="date1">Select a date:</label>
+		<input type="date" id="date1">
+		<label for="time1">Select a time:</label>
+		<input type="time" id="time1">
+		<button onclick="bookRoom()">Book Room</button>
+	</div>
+	
+	<!-- Calendar for second option -->
+	<div class="calendar" id="calendar2">
+		<label for="date2">Select a date:</label>
+		<input type="date" id="date2">
+		<label for="time2">Select a time:</label>
+		<input type="time" id="time2">
+		<button onclick="bookRoom()">Book Room</button>
+	</div>
+	
+	<!-- Popup for successful booking -->
+	<div id="popup" style="display:none">
+		<p>The room has been successfully booked!</p>
+	</div>
+
+	<script>
+		function showCalendar(option) {
+			// Hide all calendars
+			document.querySelectorAll(".calendar").forEach(function(calendar) {
+				calendar.style.display = "none";
+			});
+			// Show selected calendar
+			document.querySelector("#calendar" + option).style.display = "block";
+		}
+		
+		function bookRoom() {
+			// Close calendar
+			document.querySelectorAll(".calendar").forEach(function(calendar) {
+				calendar.style.display = "none";
+			});
+			// Show popup
+			document.querySelector("#popup").style.display = "block";
+		}
+		function modify() {
+			window.location.href = '/Users/weixiang/Documents/UOW CS/Code Room Booking/Booking Modification v2.html';
+		}
+	</script>
+
+</body>
+</html>

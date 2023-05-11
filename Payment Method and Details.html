@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment Page</title>
+	<style>
+		
+		
+			
+		body {
+			background-color: white;
+			font-family: sans-serif;
+		}
+		
+		h1 {
+			border: 2px solid gray;
+			padding: 10px;
+			background-color: lightgrey;
+			border-top-left-radius: 50px 20px;
+		}
+		
+		table {
+			border-collapse: collapse;
+			width: 80%;
+			margin: 30px auto;
+		}
+		
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+		
+		th {
+			background-color: #808080;
+			color: white;
+			text-align: center;
+		}
+		th{
+			background-color: #D3D23D3;
+		}
+		
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		
+		td {
+			height: 20px;
+			text-align: center;
+		}
+		
+		
+		.red-submit-button {
+			background-color: red;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+		
+		.red-submit-button:active {
+			background-color: darkred;
+		}
+		
+			
+			
+		
+	</style>
+		
+			
+		
+		
+		
+</head>
+<body>
+	<h1>Booking Details</h1>
+	<table style="width:100%">
+		<tr>
+			<th>Room</th>
+			<th>Date and time</th>
+			<th>Price</th>
+		</tr>
+		<tr>
+			<td>Room 1</td>
+			<td>06/07/2023 12:30 pm </td>
+			<td>$80</td>
+		</tr>
+		<tr>
+			<td>Room 2</td>
+			<td>08/07/2023 18:00 pm </td>
+			<td>$120</td>
+		</tr>
+	</table>
+	
+	<form>
+		
+		<div>
+			<h2> Payment</h2>
+			Payment Method: <input type="radio" id="credit-card" name="payment-method" value="credit-card">
+			<label for="credit-card">Credit/Debit Card</label>
+			<input type="radio" id="paynow" name="payment-method" value="paynow">
+			<label for="paynow">Paynow</label>
+			
+		</div>
+		
+		<br>
+		
+		<div id="card-details" style="display:none">
+			<label for="card-type">Card Type:</label>
+			<select id="card-type" name="card-type">
+				<option value="visa">Visa</option>
+				<option value="mastercard">Mastercard</option>
+				<option value="american-express">American Express</option>
+				
+			</select>
+			<br>
+			<br>
+			<label for="cvv">Name:</label>
+			<input type="text" size="30" id="name" name="name">
+			<br>
+			<br>
+			<label for="card-number">Card Number:</label>
+			<input type="text" size="30" id="card-number" name="card-number"> 		<label for="expiration-date">Expiration Date:</label>
+			<input type="month" size="30" id="expiration-date" name="expiration-date">
+			
+		    <br>
+			<br>
+			<label for="cvv">CVV:</label>
+			<input type="password" size="30" id="cvv" name="cvv"> <label for="promo">Enter Promo Code:</label>
+			<input type="text" size="30" id="promo" name="promo">
+			
+		
+			
+			<br>
+		
+			   </div>
+		
+		<div id="paynow-details" style="display:none">
+			<p>Please scan the QR code below to complete the payment:</p>
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1920px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="QR Code" width="150" 
+				height="150">
+			<br>
+			<label for="promo">Promo Code:</label>
+			<input type="text" id="promo" name="promo">
+		</div>	
+		<br>
+		<input type="submit" value="Submit Payment" class="red-submit-button" onclick="alert('Transaction completed.')">
+	</form>
+	
+	
+
+
+
+	<script>
+		const paymentMethodRadio = document.getElementsByName('payment-method');
+		const cardDetailsDiv = document.getElementById('card-details');
+		const paynowDetailsDiv = document.getElementById('paynow-details');
+		
+		paymentMethodRadio.forEach(radio => {
+			radio.addEventListener('click', () => {
+				if (radio.value === 'credit-card') {
+					cardDetailsDiv.style.display = 'block';
+					paynowDetailsDiv.style.display = 'none';
+				} else if (radio.value === 'paynow') {
+					cardDetailsDiv.style.display = 'none';
+					paynowDetailsDiv.style.display = 'block';
+				}
+			});
+		});
+	
+	</script>
+	
+
+	
+</body>
+</html>

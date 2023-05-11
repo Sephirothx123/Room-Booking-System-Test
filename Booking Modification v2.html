@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Details</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            border: 2px solid gray;
+            padding: 10px;
+            background-color: ;
+            border-top-left-radius: 50px 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: center ;
+        }
+
+        th {
+            background-color: #808080;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Booking Details</h1>
+    <table style="width:100%">
+        <tr>
+            <th>Booking #</th>
+            <th>Date/Time</th>
+            <th>Price</th>
+            <th>Room</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>B001</td>
+            <td>06/07/2023 12:30:00 PM</td>
+            <td>$80</td>
+            <td>Room456 </td>
+            <td>
+                <button onclick="modify()">Modify</button>
+                <button style="background-color: red;">Cancel</button>
+            </td>
+        </tr>
+        <tr>
+            <td>B002</td>
+            <td>08/07/2023 06:00:00 PM</td>
+            <td>$120</td>
+            <td>Room123</td>
+            <td>
+                <button onclick="modify()">Modify</button>
+                <button style="background-color: red;">Cancel</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <script>
+        function modify() {
+        window.location.href= '/Users/weixiang/Documents/UOW CS/Code Room Booking/Modify Booking.html';
+        }
+    </script>
+
+</body>
+</html>

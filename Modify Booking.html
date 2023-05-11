@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <body>
+    <h1>Modify Booking</h1>
+    <h3>Select a new date and time:</h3>
+  </body>
+  
+  <style>
+    .red-submit-button {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+    .red-submit-button:active {
+      background-color: darkred;
+    }
+    
+       .calendar {
+      width: 300px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .calendar table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .calendar th,
+    .calendar td {
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+    
+    .calendar th {
+      background-color: #f2f2f2;
+    }
+    
+    .calendar td:hover {
+      background-color: #f2f2f2;
+      cursor: pointer;
+    }
+    
+    .selected-date {
+      background-color: #aaf;
+    }
+    
+    .selected-time {
+      background-color: #faa;
+    }
+    
+    #selectedDateTime {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="calendar">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="7">July 2023</th>
+        </tr>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="selectable-date">1</td>
+          <td class="selectable-date">2</td>
+          <td class="selectable-date">3</td>
+        </tr>
+        <tr>
+          <td class="selectable-date">4</td>
+          <td class="selectable-date">5</td>
+          <td class="selectable-date">6</td>
+          <td class="selectable-date">7</td>
+          <td class="selectable-date">8</td>
+          <td class="selectable-date">9</td>
+          <td class="selectable-date">10</td>
+        </tr>
+        <tr>
+          <td class="selectable-date">11</td>
+          <td class="selectable-date">12</td>
+          <td class="selectable-date">13</td>
+          <td class="selectable-date">14</td>
+          <td class="selectable-date">15</td>
+          <td class="selectable-date">16</td>
+          <td class="selectable-date">17</td>
+        </tr>
+        <tr>
+          <td class="selectable-date">18</td>
+          <td class="selectable-date">19</td>
+          <td class="selectable-date">20</td>
+          <td class="selectable-date">21</td>
+          <td class="selectable-date">22</td>
+          <td class="selectable-date">23</td>
+          <td class="selectable-date">24</td>
+        </tr>
+        <tr>
+          <td class="selectable-date">25</td>
+          <td class="selectable-date">26</td>
+          <td class="selectable-date">27</td>
+          <td class="selectable-date">28</td>
+          <td class="selectable-date">29</td>
+          <td class="selectable-date">30</td>
+          <td class="selectable-date">31</td>
+        </tr>
+      
+
+      </tbody>
+    </table>
+  </div>
+  <h3>Select Timings:</h3>
+  <div id="timeSlots">
+    <button class="selectable-time">9:00 AM</button>
+    <button class="selectable-time">10:00 AM</button>
+    <button class="selectable-time">11:00 AM</button>
+    
+  </div>
+
+  <div id="selectedDateTime"></div>
+  <div>
+    <input type="submit" value="Confirm" class="red-submit-button" onclick="showPopup()" />
+  </div>
+
+  <script>
+    const selectableDateCells = document.querySelectorAll('.selectable-date');
+    const selectableTimeSlots = document.querySelectorAll('.selectable-time');
+    const selectedDateTimeElement = document.getElementById('selectedDateTime');
+    
+    let selectedDate = null;
+    let selectedTimeSlot = null;
+    
+    selectableDateCells.forEach(dateCell => {
+      dateCell.addEventListener('click', () => {
+        const selectedDateCells = document.querySelectorAll('.selected-date');
+        selectedDateCells.forEach(selectedDateCell => {
+          selectedDateCell.classList.remove('selected-date');
+        });
+        
+        dateCell.classList.add('selected-date');
+        selectedDate = `${dateCell.textContent} July 2023`;
+        
+        const defaultTimeSlot = document.querySelector('.selectable-time');
+        defaultTimeSlot.classList.add('selected-time');
+        selectedTimeSlot = defaultTimeSlot.textContent;
+        
+        updateSelectedDateTime();
+      });
+    });
+    
+    selectableTimeSlots.forEach(timeSlot => {
+      timeSlot.addEventListener('click', () => {
+        const selectedTimeSlots = document.querySelectorAll('.selected-time');
+        selectedTimeSlots.forEach(selectedTimeSlot => {
+          selectedTimeSlot.classList.remove('selected-time');
+        });
+        
+        timeSlot.classList.add('selected-time');
+        selectedTimeSlot = timeSlot.textContent;
+        
+        updateSelectedDateTime();
+      });
+    });
+    
+    function updateSelectedDateTime() {
+      selectedDateTimeElement.textContent = `Selected Date and Time: ${selectedDate} at ${selectedTimeSlot}`;
+    }
+    
+    function showPopup() {
+      // Show the pop-up message
+      alert('Booking Modified!');
+      
+      // Redirect to another page
+      window.location.href = '/Users/weixiang/Documents/UOW CS/Code Room Booking/Booking Modification v2.html';
+    }
+    
+  
+  </script>
+</body>
+</html>

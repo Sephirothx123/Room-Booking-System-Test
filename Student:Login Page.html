@@ -1,0 +1,60 @@
+<html>
+
+<style>
+</style>
+
+<script>
+	function getDetail()
+	{
+		var user = document.getElementById("user").value;
+		var pw = document.getElementById("pw").value;
+		var type = document.getElementById("uSelect").value;
+		if(user == "")
+		{
+			alert("Fill in the username!");
+		}
+		else if(pw == "")
+		{
+			alert("Fill in the password!");
+		}
+		
+		if(user == "staff" && pw == "password" && type == "2")
+		{
+			alert("Staff login");
+		}
+		
+		if(user == "Student" && pw == "password" && type == "1")
+		{
+			alert("Student login");
+			window.location.href = '/Users/weixiang/Documents/UOW CS/Code Room Booking/Project Room Booking System.html';
+		}
+		
+		else
+		{
+			alert("Wrong username/password!");
+		}
+		
+	}
+	
+	
+		
+</script>
+
+<title>
+Amazing Anonymous Room Booking System
+</title>
+
+<body>
+	<h1> Welcome to the Amazing Anonymous Room Booking System </h1>
+	Username: <input type ="text" id="user"> <br /> <br />
+	Password:&nbsp <input type ="password" id="pw"> <br /> <br />
+	Login as: 	
+	<select id="uSelect" >
+			<option value="1" selected>Student</option>
+			<option value="2">Staff</option>
+	</select><br /><br />
+	<input type ="button" id="login" value="Login" onclick="getDetail()">
+
+</body>
+
+</html>
